@@ -3,6 +3,8 @@
 import React, { useState, useCallback } from "react";
 import DeepSpaceCanvas, { AstronomyPhase } from "@/components/astronomy/DeepSpaceCanvas";
 import CinematicVideoLayer from "@/components/astronomy/CinematicVideoLayer";
+import PeripheralMemoryGallery from "@/components/astronomy/PeripheralMemoryGallery";
+import BackgroundMusicController from "@/components/astronomy/BackgroundMusicController";
 import AstronomicalClock from "@/components/astronomy/AstronomicalClock";
 import AwakeningSequence from "@/components/astronomy/AwakeningSequence";
 import CelestialControls from "@/components/astronomy/CelestialControls";
@@ -66,10 +68,10 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen bg-[#03040A] text-[#E4E7F3] selection:bg-[#503B83] selection:text-[#F5D9A0] overflow-hidden">
-      {/* Cinematic Astronomical Background Video Layer */}
+      {/* 1. Cinematic Astronomical Background Video Layer */}
       <CinematicVideoLayer phase={phase} />
 
-      {/* Dynamic Multi-Layered Astronomical Starfield & Constellation Canvas */}
+      {/* 2. Dynamic Multi-Layered Astronomical Starfield & Constellation Canvas */}
       <DeepSpaceCanvas
         phase={phase}
         mariaProgress={mariaProgress}
@@ -77,7 +79,13 @@ export default function Home() {
         awakeningProgress={awakeningProgress}
       />
 
-      {/* Floating Astronomical Controls & Cursor */}
+      {/* 3. Peripheral Memory Gallery (Surrounding outer borders with protected central safe zone) */}
+      <PeripheralMemoryGallery isAwakened={isAwakened} />
+
+      {/* 4. Background Music Controller with Real Love Songs */}
+      <BackgroundMusicController />
+
+      {/* 5. Floating Astronomical Controls & Celestial Cursor */}
       <CustomCursor />
       <CelestialControls
         onSimulate={handleSimulate}
@@ -85,22 +93,24 @@ export default function Home() {
         isAwakened={isAwakened}
       />
 
-      {/* Primary Narrative Container */}
-      <div className="relative z-10 w-full min-h-screen flex flex-col justify-center">
-        {!isAwakened ? (
-          /* PRE-AWAKENING: Full-Screen Astronomical Observatory & Clock */
-          <AstronomicalClock
-            onPhaseChange={handlePhaseChange}
-            onAwaken={handleAwaken}
-            overrideSeconds={overrideSeconds}
-          />
-        ) : (
-          /* POST-11:11: The Great Celestial Awakening Sequence */
-          <AwakeningSequence
-            onPhaseUpdate={handlePhaseUpdate}
-            onReset={handleReset}
-          />
-        )}
+      {/* 6. Primary Central Astronomical Composition (Center Visual Safe Zone) */}
+      <div className="relative z-10 w-full min-h-screen flex flex-col justify-center items-center pointer-events-none">
+        <div className="w-full max-w-2xl px-4 flex flex-col items-center justify-center pointer-events-auto">
+          {!isAwakened ? (
+            /* PRE-AWAKENING: Full-Screen Astronomical Observatory & Clock */
+            <AstronomicalClock
+              onPhaseChange={handlePhaseChange}
+              onAwaken={handleAwaken}
+              overrideSeconds={overrideSeconds}
+            />
+          ) : (
+            /* POST-11:11: The Great Celestial Awakening Sequence */
+            <AwakeningSequence
+              onPhaseUpdate={handlePhaseUpdate}
+              onReset={handleReset}
+            />
+          )}
+        </div>
       </div>
     </main>
   );
