@@ -246,12 +246,11 @@ export const astronomyConfig: UnifiedAstronomyConfig = {
       title: "Under The Midnight Sky",
       subtitle: "The night we lost track of time",
       caption:
-        "Looking up at a billion stars, but my eyes always found their way back to you.",
-      date: "Autumn Evening",
-      location: "Stargazer's Hill",
-      image:
-        "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1600&q=80",
-      alt: "Starry starry night sky over mountain silhouette",
+        "Looking up at a billion stars, but my eyes always found their way back to you, Maria.",
+      date: "Our Special Night",
+      location: "Under Starlight",
+      image: "/images/couple_sweet_selfie.jpg",
+      alt: "Maria and me under starlight",
     },
     {
       id: "memory-2",
@@ -259,23 +258,21 @@ export const astronomyConfig: UnifiedAstronomyConfig = {
       subtitle: "When the light caught your smile",
       caption:
         "Some smiles can illuminate an entire universe. Yours is my favourite one, Maria.",
-      date: "Late Afternoon",
-      location: "The Coastline",
-      image:
-        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80",
-      alt: "Golden sunset over calm ocean waves",
+      date: "Golden Hour",
+      location: "Together",
+      image: "/images/IMG_5175.jpg",
+      alt: "Maria smiling",
     },
     {
       id: "memory-3",
       title: "Quiet Coffee & Soft Whispers",
       subtitle: "The ordinary turned extraordinary",
       caption:
-        "No grand gestures needed—just your hand in mine, warm mugs, and endless laughter.",
-      date: "Sunday Morning",
-      location: "Our Corner Table",
-      image:
-        "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1600&q=80",
-      alt: "Warm coffee and morning light",
+        "No grand gestures needed—just your hand in mine, warm moments, and laughter.",
+      date: "Afternoon",
+      location: "Our Space",
+      image: "/images/IMG_3574.jpg",
+      alt: "Sweet quiet moments",
     },
     {
       id: "memory-4",
@@ -283,11 +280,10 @@ export const astronomyConfig: UnifiedAstronomyConfig = {
       subtitle: "Every adventure is better with you",
       caption:
         "Windows down, music on, headlights carving through the dark. Anywhere is home with you.",
-      date: "Twilight Drive",
+      date: "Road Trip",
       location: "The Open Road",
-      image:
-        "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80",
-      alt: "Misty mountains and winding road into the forest",
+      image: "/images/IMG_3578.jpg",
+      alt: "Adventures together",
     },
     {
       id: "memory-5",
@@ -295,23 +291,21 @@ export const astronomyConfig: UnifiedAstronomyConfig = {
       subtitle: "Surrounded by millions, seeing only you",
       caption:
         "The whole city glittering beneath us, but none of its lights shine as bright as your eyes.",
-      date: "Midnight",
-      location: "The Rooftop",
-      image:
-        "https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1600&q=80",
-      alt: "City lights glittering at night",
+      date: "Evening Out",
+      location: "City Lights",
+      image: "/images/IMG_3659.jpg",
+      alt: "City lights together",
     },
     {
       id: "memory-6",
-      title: "Aurora Of Our Dreams",
-      subtitle: "When the sky dances for us",
+      title: "Timeless Moments",
+      subtitle: "When time stood still",
       caption:
         "Proof that magic exists in this world. And having you is the greatest magic of all.",
-      date: "Winter Night",
-      location: "The Northern Horizon",
-      image:
-        "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=1600&q=80",
-      alt: "Green and purple northern lights aurora in starry sky",
+      date: "Cherished Day",
+      location: "With Maria",
+      image: "/images/moment_c5c4dd992bee44918803b66e575be708_1694126187177_Original.jpg",
+      alt: "Cherished moment with Maria",
     },
   ],
   wishesHeader: {
