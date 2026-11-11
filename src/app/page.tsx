@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from "react";
 import DeepSpaceCanvas, { AstronomyPhase } from "@/components/astronomy/DeepSpaceCanvas";
+import CinematicVideoLayer from "@/components/astronomy/CinematicVideoLayer";
 import AstronomicalClock from "@/components/astronomy/AstronomicalClock";
 import AwakeningSequence from "@/components/astronomy/AwakeningSequence";
 import CelestialControls from "@/components/astronomy/CelestialControls";
@@ -65,7 +66,10 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen bg-[#03040A] text-[#E4E7F3] selection:bg-[#503B83] selection:text-[#F5D9A0] overflow-hidden">
-      {/* Dynamic Multi-Layered Astronomical Canvas */}
+      {/* Cinematic Astronomical Background Video Layer */}
+      <CinematicVideoLayer phase={phase} />
+
+      {/* Dynamic Multi-Layered Astronomical Starfield & Constellation Canvas */}
       <DeepSpaceCanvas
         phase={phase}
         mariaProgress={mariaProgress}
@@ -73,7 +77,7 @@ export default function Home() {
         awakeningProgress={awakeningProgress}
       />
 
-      {/* Floating Astronomical Instrument Controls & Cursor */}
+      {/* Floating Astronomical Controls & Cursor */}
       <CustomCursor />
       <CelestialControls
         onSimulate={handleSimulate}
