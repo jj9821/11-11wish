@@ -19,10 +19,25 @@ export interface WishItem {
   iconName: "sun" | "sparkles" | "compass" | "heart" | "infinity";
 }
 
-export interface LoveConfig {
+export interface CelestialPalette {
+  absoluteBlack: string;
+  deepCosmicNavy: string;
+  midnightIndigo: string;
+  nebulaViolet: string;
+  celestialBlue: string;
+  starlightGold: string;
+  moonlightSilver: string;
+  softRose: string;
+}
+
+export interface UnifiedAstronomyConfig {
   meta: {
     siteTitle: string;
     siteDescription: string;
+  };
+  recipient: {
+    name: string;
+    label: string;
   };
   names: {
     herName: string;
@@ -32,6 +47,26 @@ export interface LoveConfig {
   anniversary: {
     date: string;
     label: string;
+  };
+  observatory: {
+    targetTimeISO: string;
+    targetTimeLabel: string;
+    coordinates: {
+      rightAscension: string;
+      declination: string;
+      constellation: string;
+      epoch: string;
+    };
+    headline: string;
+    subheadline: string;
+    dedication: string;
+  };
+  countdown: {
+    statusWaiting: string;
+    statusSixtySeconds: string;
+    statusThirtySeconds: string;
+    statusTenSeconds: string;
+    statusAwakening: string;
   };
   narrative: {
     tagline: string;
@@ -50,6 +85,14 @@ export interface LoveConfig {
     revealClimax: string;
     revealSubtitle: string;
   };
+  constellationMaria: {
+    title: string;
+    subtext: string;
+  };
+  wishReveal: {
+    lines: string[];
+    climax: string;
+  };
   letter: {
     floatingPill: string;
     openButtonText: string;
@@ -57,6 +100,7 @@ export interface LoveConfig {
     date: string;
     salutation: string;
     paragraphs: string[];
+    closing: string;
     signOff: string;
     signature: string;
   };
@@ -77,32 +121,64 @@ export interface LoveConfig {
     line1: string;
     line2: string;
     heading: string;
+    stanza1: string;
+    stanza2: string;
+    stanza3: string;
+    name: string;
     promise: string;
+    signoff: string;
     restartButtonText: string;
   };
+  palette: CelestialPalette;
   audio: {
+    ambientDrone: boolean;
+    frequency: number;
     title: string;
     artist: string;
-    src: string; // If set and file exists, will play this audio file. Otherwise Web Audio API generates ambient pads.
+    src: string;
     volume: number;
     synthesizeAmbience: boolean;
   };
 }
 
-export const loveConfig: LoveConfig = {
+export const astronomyConfig: UnifiedAstronomyConfig = {
   meta: {
-    siteTitle: "11:11 | You Are My Wish",
+    siteTitle: "11:11 | For Maria — The Celestial Observatory",
     siteDescription:
-      "At 11:11, everyone makes a wish. But I don't have to. Because you're the wish I'd make, every single time.",
+      "An astronomical journey through the cosmos dedicated to 11/11 at 11:11 PM. For Maria.",
+  },
+  recipient: {
+    name: "Maria",
+    label: "For Maria",
   },
   names: {
-    herName: "My Love",
+    herName: "Maria",
     myName: "Yours Always",
-    nickname: "My Favourite Wish",
+    nickname: "My Wish",
   },
   anniversary: {
-    date: "November 11",
-    label: "Our Special Moment",
+    date: "November 11, 2026",
+    label: "11:11 PM IST",
+  },
+  observatory: {
+    targetTimeISO: "2026-11-11T23:11:00+05:30",
+    targetTimeLabel: "11:11:00 PM IST",
+    coordinates: {
+      rightAscension: "22h 11m 11.0s",
+      declination: "+11° 11' 11.0\"",
+      constellation: "Pegasus-Andromeda Sector",
+      epoch: "J2026.86",
+    },
+    headline: "THE UNIVERSE IS WAITING",
+    subheadline: "Some wishes deserve their own moment.",
+    dedication: "For Maria.",
+  },
+  countdown: {
+    statusWaiting: "CELESTIAL HARMONICS SYNCHRONIZING",
+    statusSixtySeconds: "GRAVITATIONAL LENSING ACCELERATING",
+    statusThirtySeconds: "STELLAR CORONA EXPANDING",
+    statusTenSeconds: "TIME DILATION INITIATED",
+    statusAwakening: "CELESTIAL AWAKENING IN PROGRESS",
   },
   narrative: {
     tagline:
@@ -114,7 +190,7 @@ export const loveConfig: LoveConfig = {
     countdownNumber: 11,
     wishConfirmationQuestion: "Did you make a wish?",
     wishConfirmationButton: "I DID ✨",
-    revealHook: "Can I tell you something?",
+    revealHook: "Can I tell you something, Maria?",
     revealPremise: "Everyone makes a wish at 11:11.",
     revealStagger1: "Some wish for happiness.",
     revealStagger2: "Some wish for success.",
@@ -123,34 +199,46 @@ export const loveConfig: LoveConfig = {
     revealSubtitle:
       "Because out of eight billion souls and an infinite cosmos, you are the only wish I'll ever need.",
   },
-  letter: {
-    floatingPill: "A little something from me to you.",
-    openButtonText: "OPEN YOUR LETTER",
-    closeButtonText: "FOLD LETTER",
-    date: "11:11 PM — A Quiet Evening",
-    salutation: "To the love of my life,",
-    paragraphs: [
-      "Everyone talks about 11:11 being the perfect time to make a wish.",
-      "They say the universe listens a little closer at this moment.",
-      "But if I could make a thousand wishes, I think I'd end up making the same one every single time.",
-      "You.",
-      "I'd wish for more memories with you, more laughter, more random conversations, more adventures, and all those little moments that somehow become my favourite memories.",
-      "I'd wish for the days when everything feels perfect and even the days when everything feels a little difficult.",
-      "I'd wish to keep choosing you.",
-      "Not just today. Not just at 11:11.",
-      "Every ordinary morning, every random afternoon, and every quiet night.",
-      "Maybe I don't need to make a wish anymore.",
-      "Because somehow, the universe gave me you.",
-      "And if I get to keep wishing for anything, let it always be us.",
+  constellationMaria: {
+    title: "MARIA",
+    subtext: "Out of all the stars in the universe, my wish still finds you.",
+  },
+  wishReveal: {
+    lines: [
+      "If the universe could grant me one wish tonight...",
+      "it would be another chance with you, Maria.",
+      "And this time...",
+      "I want to love you properly.",
     ],
-    signOff: "Happy 11:11, my favourite wish. ❤️",
-    signature: "Forever & Always,",
+    climax: "I want to love you properly.",
+  },
+  letter: {
+    floatingPill: "A little something from me to you, Maria.",
+    openButtonText: "OPEN CELESTIAL LETTER",
+    closeButtonText: "FOLD LETTER",
+    date: "11:11 PM IST — A Quiet Universe",
+    salutation: "Maria,",
+    paragraphs: [
+      "If I could make one wish tonight, it would be for another chance with you.",
+      "A chance to do things differently.",
+      "A chance to understand you better, appreciate you more, and show you the kind of love I wish I had given you all along.",
+      "I don't expect the universe to promise me anything.",
+      "But if there is one thing I could ask for, it would be the opportunity to love you properly this time.",
+      "To create new memories, to laugh together, to be there through ordinary days, and to make the little moments matter.",
+      "I don't know what the future holds.",
+      "But tonight, at 11:11, this is my wish.",
+      "One more chance with you, Maria.",
+      "And this time, I want to get it right.",
+    ],
+    closing: "Forever in your orbit,",
+    signOff: "Happy 11:11, Maria. ❤️",
+    signature: "Yours Always",
   },
   memoriesHeader: {
-    badge: "SCENE 05 // OUR LITTLE UNIVERSE",
+    badge: "ARCHIVE // OUR CELESTIAL MOMENTS",
     title: "If I could collect moments, I'd collect them with you.",
     subtitle:
-      "A gallery of stargazed evenings, whispered dreams, and ordinary days turned timeless.",
+      "Stargazed evenings, whispered dreams, and ordinary days turned timeless.",
   },
   memories: [
     {
@@ -170,7 +258,7 @@ export const loveConfig: LoveConfig = {
       title: "Golden Hour Glow",
       subtitle: "When the light caught your smile",
       caption:
-        "Some smiles can illuminate an entire universe. Yours is my favourite one.",
+        "Some smiles can illuminate an entire universe. Yours is my favourite one, Maria.",
       date: "Late Afternoon",
       location: "The Coastline",
       image:
@@ -227,7 +315,7 @@ export const loveConfig: LoveConfig = {
     },
   ],
   wishesHeader: {
-    badge: "SCENE 06 // FIVE LITTLE WISHES",
+    badge: "CELESTIAL PRAYERS // FIVE WISHES",
     title: "If I could make five wishes for us...",
     subtitle:
       "Not for wealth, not for things that fade—just these simple, eternal truths.",
@@ -240,7 +328,7 @@ export const loveConfig: LoveConfig = {
       subtitle: "Watching the sky change colors beside you.",
       description:
         "To pause time at dusk, breathing in the amber and rose horizon, knowing there's nowhere else in this world I'd rather be.",
-      accent: "#EBD5A5", // champagne gold
+      accent: "#F5D9A0",
       iconName: "sun",
     },
     {
@@ -250,7 +338,7 @@ export const loveConfig: LoveConfig = {
       subtitle: "The kind of laughter that makes our stomachs hurt.",
       description:
         "For inside jokes that only we understand, midnight giggles that wake the house, and the effortless lightness of being your person.",
-      accent: "#C4A6FF", // lavender
+      accent: "#503B83",
       iconName: "sparkles",
     },
     {
@@ -260,7 +348,7 @@ export const loveConfig: LoveConfig = {
       subtitle: "New horizons, shared compasses, hand in hand.",
       description:
         "To get delightfully lost in unfamiliar cobblestone streets, climb misty viewpoints, and stamp our memories across the globe together.",
-      accent: "#93C5FD", // soft celestial blue
+      accent: "#7995CC",
       iconName: "compass",
     },
     {
@@ -270,7 +358,7 @@ export const loveConfig: LoveConfig = {
       subtitle: "Stories woven from quiet golden threads.",
       description:
         "For chapters filled with silly mishaps, quiet triumphs, warm blankets on rainy afternoons, and love that grows deeper with every season.",
-      accent: "#D99CB7", // muted rose
+      accent: "#D7A6B8",
       iconName: "heart",
     },
     {
@@ -280,24 +368,43 @@ export const loveConfig: LoveConfig = {
       subtitle: "Every single one of them. For all of time.",
       description:
         "To wake up to your voice, to fall asleep holding your hand, and to choose you with certainty every ordinary, beautiful day to come.",
-      accent: "#FFF9F2", // soft starlight white
+      accent: "#E4E7F3",
       iconName: "infinity",
     },
   ],
   finale: {
     time: "11:11",
-    line1: "Out of all the wishes in the universe...",
-    line2: "You're still my favourite.",
-    heading: "Happy 11:11, my love.",
+    line1: "One universe.",
+    line2: "Billions of stars.",
+    heading: "Maria.",
+    stanza1: "One universe.",
+    stanza2: "Billions of stars.",
+    stanza3: "One wish.",
+    name: "Maria.",
     promise:
-      "If I could go back and make a wish a thousand times, I'd still choose you. Every single time.",
-    restartButtonText: "MAKE ANOTHER WISH ✨",
+      "If I get another chance, I want to love you properly this time.",
+    signoff: "11:11 ❤️",
+    restartButtonText: "RETURN TO OBSERVATORY ✨",
+  },
+  palette: {
+    absoluteBlack: "#03040A",
+    deepCosmicNavy: "#080D20",
+    midnightIndigo: "#11152F",
+    nebulaViolet: "#503B83",
+    celestialBlue: "#7995CC",
+    starlightGold: "#F5D9A0",
+    moonlightSilver: "#E4E7F3",
+    softRose: "#D7A6B8",
   },
   audio: {
-    title: "Celestial Radiance (11:11 Ambient Soundscape)",
-    artist: "Procedural Harmony & Starlight",
+    ambientDrone: true,
+    frequency: 55,
+    title: "Celestial Mechanics at 11:11",
+    artist: "Starlight & Space",
     src: "/audio/ambient.mp3",
-    volume: 0.4,
+    volume: 0.5,
     synthesizeAmbience: true,
   },
 };
+
+export const loveConfig = astronomyConfig;

@@ -1,93 +1,102 @@
-# 🌟 How to Customize "11:11 | You Are My Wish"
+# 🔭 The Universe at 11:11 | For Maria
 
-This website was designed with a dedicated configuration system so you can easily personalize every detail for your girlfriend without touching complex animation code.
+An astronomical interactive digital experience dedicated to **Maria** and calibrated to **November 11, 2026, at 11:11:00 PM Asia/Kolkata (IST)**.
 
 ---
 
-## 1. Edit Names & Details
-Open **`src/config/love-config.ts`**:
+## 🌟 The Narrative Arc
+
+> *"I wish for another chance with you, Maria. And this time, I want to love you properly."*
+
+1. **The Celestial Observatory (Pre-11:11)**:
+   - A luxury astronomical instrument / armillary sphere dial.
+   - Concentric orbital rings with degree markings and rotating celestial markers.
+   - Real-time countdown to 11:11:00 PM Asia/Kolkata.
+   - Moon phase indicator orbiting with realistic lunar shading.
+
+2. **The Final 60 Seconds**:
+   - **T-60s**: Orbital rings accelerate, moon converges, sub-bass drone hums in the background.
+   - **T-30s**: Background nebula intensifies, meteor trails ignite, dial radiates starlight gold.
+   - **T-10s**: Giant cinematic numbers (10... 9... 8...), pulsing gravitational shockwaves through the stars with each second.
+
+3. **The Great Celestial Awakening (11:11:00 PM IST)**:
+   - Complete darkness → Single pulsating golden star → Supernova visual burst.
+   - A living spiral galaxy forms with logarithmic arms and dust lanes.
+   - Camera travels through the cosmic depth.
+
+4. **The Constellation of MARIA**:
+   - Thousands of stars migrate into astronomical coordinates spelling **MARIA**.
+   - Delicate glowing cartography lines connect each star.
+   - A golden shooting star sweeps across the completed name.
+   - *"Out of all the stars in the universe, my wish still finds you."*
+
+5. **The Wish Reveal**:
+   - Camera follows a bright shooting star across the cosmos as the confession unfolds:
+     - *"If the universe could grant me one wish tonight..."*
+     - *"it would be another chance with you, Maria."*
+     - *"And this time..."*
+     - *"I want to love you properly."*
+
+6. **The Personal Love Letter to Maria**:
+   - A glowing celestial folio surrounded by drifting stardust containing your sincere, vulnerable words.
+
+7. **The Final Constellation & Eternal Cosmos**:
+   - An astronomical heart constellation formed by real celestial star nodes.
+   - A golden shooting star cuts through the heart.
+   - *"One universe. Billions of stars. One wish. Maria."*
+   - *"If I get another chance, I want to love you properly this time."*
+
+---
+
+## ⚙️ Customization Guide
+
+### 1. Dedicated Configuration File
+All texts, coordinates, and timings are stored in **`src/config/love-config.ts`**:
 
 ```typescript
-names: {
-  herName: "Maya",           // Replace with her real name
-  myName: "Alex",            // Replace with your name
-  nickname: "My Favourite Wish",
-},
-anniversary: {
-  date: "November 11, 2024", // Your special date or anniversary
-  label: "Our Special Moment",
-},
+export const astronomyConfig = {
+  recipient: {
+    name: "Maria",
+    label: "For Maria",
+  },
+  observatory: {
+    targetTimeISO: "2026-11-11T23:11:00+05:30", // Asia/Kolkata 11:11 PM
+    coordinates: {
+      rightAscension: "22h 11m 11.0s",
+      declination: "+11° 11' 11.0\"",
+      constellation: "Pegasus-Andromeda Sector",
+    },
+    headline: "THE UNIVERSE IS WAITING",
+    subheadline: "Some wishes deserve their own moment.",
+    dedication: "For Maria.",
+  },
+  letter: {
+    salutation: "Maria,",
+    paragraphs: [
+      // Edit or add your personal words
+    ],
+    closing: "Forever in your orbit,",
+    signature: "Yours Always",
+  },
+  // ...
+};
 ```
 
 ---
 
-## 2. Personalize The 3D Letter
-In **`src/config/love-config.ts`**, update the `letter` section:
+## 🎮 Astronomical Simulation Controls (Top Left Menu)
 
-```typescript
-letter: {
-  salutation: "To the love of my life,",
-  paragraphs: [
-    "Everyone talks about 11:11 being the perfect time to make a wish...",
-    // Add your own custom paragraphs or keep the poetic default!
-  ],
-  signOff: "Happy 11:11, my favourite wish. ❤️",
-  signature: "Forever & Always, Alex",
-}
-```
+You can experience and verify every stage at any time without waiting for 11:11 PM:
+- **Real-Time Clock (IST)**: Default real-time clock targeting 11:11 PM Asia/Kolkata.
+- **Jump to T-60s**: Simulates the 60-second acceleration phase.
+- **Jump to T-10s**: Simulates the final 10-second giant countdown and gravitational pulses.
+- **Trigger 11:11 Awakening**: Immediately launches the Supernova, Living Spiral Galaxy, Constellation of Maria, Wish reveal, and Letter.
 
 ---
 
-## 3. Replace Photographs (Scene 05: Our Little Universe)
-You can use either local images or high-resolution URLs:
+## 🎵 Sound Design
 
-### Option A: Using Local Pictures (Recommended)
-1. Drop your pictures into the **`public/images/`** folder:
-   - `public/images/photo1.jpg`
-   - `public/images/photo2.jpg`
-   - `public/images/photo3.jpg`
-   - ...
-2. In **`src/config/love-config.ts`**, under `memories`, update the `image` paths:
-   ```typescript
-   {
-     id: "memory-1",
-     title: "Under The Midnight Sky",
-     subtitle: "Our first stargazing trip",
-     caption: "Looking up at a billion stars, but my eyes always found their way back to you.",
-     date: "October 14",
-     location: "Blue Ridge Lookout",
-     image: "/images/photo1.jpg",
-     alt: "Maya smiling under starlight",
-   }
-   ```
-
-### Option B: Using Web / Cloud URLs
-Set `image: "https://your-photo-hosting.com/your-image.jpg"`.
-*(Note: If you use an external domain, add it to `next.config.ts` under `images.remotePatterns`)*
-
----
-
-## 4. Background Music & Sound Effects
-
-### Built-in Ambient Soundscape
-Out-of-the-box, the website includes a **procedural Web Audio API sound generator** that plays warm, ethereal celestial chords and crystal chimes in real-time, even with zero audio files installed!
-
-### Using Your Own Song:
-1. Place your MP3 file in:
-   **`public/audio/ambient.mp3`**
-2. In `love-config.ts`, verify:
-   ```typescript
-   audio: {
-     title: "Our Song Title",
-     artist: "Artist Name",
-     src: "/audio/ambient.mp3",
-     volume: 0.5,
-     synthesizeAmbience: true, // Will fall back to synthesized pads if mp3 is not loaded
-   }
-   ```
-3. Audio begins smoothly as soon as the visitor interacts with the page or taps the floating audio toggle.
-
----
-
-## 5. Five Wishes & Grand Finale
-Feel free to modify the 5 wishes in `love-config.ts` under `wishes: [...]` or the final promise in `finale: {...}` to reflect your own inside jokes, shared dreams, or specific promises.
+- **Celestial Drone**: 55Hz sub-bass ambient drone synthesized via the Web Audio API.
+- **Gravitational Pulses**: Resonant thumps on each second of the final 10-second countdown.
+- **Supernova Awakening**: Deep cosmic burst with ascending celestial harp harmonics.
+- **Crystal Chimes**: Pure starlight bells for the Constellation of Maria and the Wish reveals.

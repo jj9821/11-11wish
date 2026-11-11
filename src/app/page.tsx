@@ -1,78 +1,103 @@
 "use client";
 
-import React, { useState } from "react";
-import SmoothScroll from "@/components/animation/SmoothScroll";
-import StarField from "@/components/animation/StarField";
+import React, { useState, useCallback } from "react";
+import DeepSpaceCanvas, { AstronomyPhase } from "@/components/astronomy/DeepSpaceCanvas";
+import AstronomicalClock from "@/components/astronomy/AstronomicalClock";
+import AwakeningSequence from "@/components/astronomy/AwakeningSequence";
+import CelestialControls from "@/components/astronomy/CelestialControls";
 import CustomCursor from "@/components/animation/CustomCursor";
-import MusicToggle from "@/components/ui/MusicToggle";
-import ProgressIndicator from "@/components/ui/ProgressIndicator";
-
-import IntroScene from "@/components/experience/IntroScene";
-import WishScene from "@/components/experience/WishScene";
-import RevealScene from "@/components/experience/RevealScene";
-import LetterScene from "@/components/experience/LetterScene";
-import MemoryGallery from "@/components/experience/MemoryGallery";
-import WishesScene from "@/components/experience/WishesScene";
-import FinaleScene from "@/components/experience/FinaleScene";
-
-import { loveConfig } from "@/config/love-config";
-import { Heart } from "lucide-react";
 
 export default function Home() {
-  const [isConstellationActive, setIsConstellationActive] = useState(false);
+  const [phase, setPhase] = useState<AstronomyPhase>("observatory");
+  const [isAwakened, setIsAwakened] = useState<boolean>(false);
+  const [overrideSeconds, setOverrideSeconds] = useState<number | null>(null);
+
+  // Progressive parameters for canvas constellations & galaxy
+  const [mariaProgress, setMariaProgress] = useState<number>(0);
+  const [heartProgress, setHeartProgress] = useState<number>(0);
+  const [awakeningProgress, setAwakeningProgress] = useState<number>(0);
+
+  const handlePhaseChange = useCallback((newPhase: AstronomyPhase) => {
+    setPhase(newPhase);
+  }, []);
+
+  const handleAwaken = useCallback(() => {
+    setIsAwakened(true);
+    setPhase("awakening");
+  }, []);
+
+  const handlePhaseUpdate = useCallback(
+    (
+      newPhase: AstronomyPhase,
+      mariaProg: number,
+      heartProg: number,
+      awakenProg: number
+    ) => {
+      setPhase(newPhase);
+      setMariaProgress(mariaProg);
+      setHeartProgress(heartProg);
+      setAwakeningProgress(awakenProg);
+    },
+    []
+  );
+
+  const handleReset = useCallback(() => {
+    setIsAwakened(false);
+    setPhase("observatory");
+    setOverrideSeconds(null);
+    setMariaProgress(0);
+    setHeartProgress(0);
+    setAwakeningProgress(0);
+  }, []);
+
+  const handleSimulate = useCallback((seconds: number | null) => {
+    setOverrideSeconds(seconds);
+    if (seconds === null) {
+      setIsAwakened(false);
+      setPhase("observatory");
+    }
+  }, []);
+
+  const handleTriggerAwakeningDirectly = useCallback(() => {
+    setOverrideSeconds(0);
+    handleAwaken();
+  }, [handleAwaken]);
 
   return (
-    <SmoothScroll>
-      <main className="relative min-h-screen bg-[#05050B] text-[#FFF9F2] selection:bg-[#211333] selection:text-[#EBD5A5] overflow-x-hidden">
-        {/* Interactive Deep Space Canvas Starfield */}
-        <StarField
-          showConstellation={isConstellationActive}
-          constellationProgress={isConstellationActive ? 1 : 0}
-          density="medium"
-          interactive={true}
-        />
+    <main className="relative min-h-screen bg-[#03040A] text-[#E4E7F3] selection:bg-[#503B83] selection:text-[#F5D9A0] overflow-hidden">
+      {/* Dynamic Multi-Layered Astronomical Canvas */}
+      <DeepSpaceCanvas
+        phase={phase}
+        mariaProgress={mariaProgress}
+        heartProgress={heartProgress}
+        awakeningProgress={awakeningProgress}
+      />
 
-        {/* Floating Controls & Overlays */}
-        <CustomCursor />
-        <MusicToggle />
-        <ProgressIndicator />
+      {/* Floating Astronomical Instrument Controls & Cursor */}
+      <CustomCursor />
+      <CelestialControls
+        onSimulate={handleSimulate}
+        onTriggerAwakening={handleTriggerAwakeningDirectly}
+        isAwakened={isAwakened}
+      />
 
-        {/* The 7 Cinematic Narrative Scenes */}
-        <div className="relative z-10 flex flex-col w-full">
-          {/* Scene 01: The Introduction */}
-          <IntroScene />
-
-          {/* Scene 02: The Wish */}
-          <WishScene />
-
-          {/* Scene 03: The Unexpected Reveal ("BUT I WISH FOR YOU.") */}
-          <RevealScene />
-
-          {/* Scene 04: The 3D Letter */}
-          <LetterScene />
-
-          {/* Scene 05: Our Little Universe (Memory Gallery) */}
-          <MemoryGallery />
-
-          {/* Scene 06: Five Little Wishes */}
-          <WishesScene />
-
-          {/* Scene 07: The Grand Finale (Heart Constellation) */}
-          <FinaleScene onConstellationActivate={setIsConstellationActive} />
-
-          {/* Minimal Romantic Colophon */}
-          <footer className="relative z-10 py-12 px-4 text-center border-t border-[#EBD5A5]/10 text-xs font-mono text-[#FFF9F2]/40 tracking-widest uppercase">
-            <div className="flex items-center justify-center gap-2 mb-2">
-              <span>FOR {loveConfig.names.herName}</span>
-              <Heart className="w-3 h-3 text-[#D99CB7] fill-[#D99CB7]" />
-              <span>FROM {loveConfig.names.myName}</span>
-            </div>
-            <p className="text-[10px] text-[#FFF9F2]/25">
-              11:11 // DEDICATED TO EVERY WISH THAT LED TO YOU
-            </p>
-          </footer>
-        </div>
-      </main>
-    </SmoothScroll>
+      {/* Primary Narrative Container */}
+      <div className="relative z-10 w-full min-h-screen flex flex-col justify-center">
+        {!isAwakened ? (
+          /* PRE-AWAKENING: Full-Screen Astronomical Observatory & Clock */
+          <AstronomicalClock
+            onPhaseChange={handlePhaseChange}
+            onAwaken={handleAwaken}
+            overrideSeconds={overrideSeconds}
+          />
+        ) : (
+          /* POST-11:11: The Great Celestial Awakening Sequence */
+          <AwakeningSequence
+            onPhaseUpdate={handlePhaseUpdate}
+            onReset={handleReset}
+          />
+        )}
+      </div>
+    </main>
   );
 }

@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
-import { loveConfig } from "@/config/love-config";
+import { astronomyConfig } from "@/config/love-config";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -27,33 +27,36 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: loveConfig.meta.siteTitle,
-  description: loveConfig.meta.siteDescription,
-  authors: [{ name: loveConfig.names.myName }],
+  title: `11:11 | ${astronomyConfig.recipient.label} — The Celestial Observatory`,
+  description:
+    "An extraordinary astronomical journey through the universe at 11:11 PM. For Maria.",
   keywords: [
     "11:11",
-    "romantic experience",
-    "you are my wish",
-    "interactive letter",
-    "anniversary",
-    "love story",
+    "astronomy",
+    "celestial clock",
+    "deep space",
+    "constellation maria",
+    "starlight wish",
+    "astrolabe",
   ],
   openGraph: {
-    title: loveConfig.meta.siteTitle,
-    description: loveConfig.meta.siteDescription,
+    title: `11:11 | ${astronomyConfig.recipient.label}`,
+    description:
+      "At 11:11, the universe listens. An astronomical journey through the stars for Maria.",
     type: "website",
     locale: "en_US",
-    siteName: "11:11 | You Are My Wish",
+    siteName: "11:11 Celestial Observatory",
   },
   twitter: {
     card: "summary_large_image",
-    title: loveConfig.meta.siteTitle,
-    description: loveConfig.meta.siteDescription,
+    title: `11:11 | ${astronomyConfig.recipient.label}`,
+    description:
+      "At 11:11, the universe listens. An astronomical journey through the stars for Maria.",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#05050B",
+  themeColor: "#03040A",
   colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
@@ -68,9 +71,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${playfair.variable} ${inter.variable} dark scroll-smooth`}
+      className={`${cormorant.variable} ${playfair.variable} ${inter.variable} dark`}
     >
-      <body className="bg-[#05050B] text-[#FFF9F2] min-h-screen selection:bg-[#211333] selection:text-[#EBD5A5] overflow-x-hidden antialiased">
+      <body className="bg-[#03040A] text-[#E4E7F3] min-h-screen selection:bg-[#503B83] selection:text-[#F5D9A0] overflow-x-hidden antialiased">
         {children}
       </body>
     </html>

@@ -1,13 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-midnight: #05050B;
-  --color-deep-navy: #090D20;
-  --color-cosmic-purple: #211333;
-  --color-lavender: #C4A6FF;
-  --color-champagne-gold: #EBD5A5;
-  --color-soft-white: #FFF9F2;
-  --color-muted-rose: #D99CB7;
+  --color-absolute-black: #03040A;
+  --color-cosmic-navy: #080D20;
+  --color-midnight-indigo: #11152F;
+  --color-nebula-violet: #503B83;
+  --color-celestial-blue: #7995CC;
+  --color-starlight-gold: #F5D9A0;
+  --color-moonlight-silver: #E4E7F3;
+  --color-soft-rose: #D7A6B8;
 
   --font-serif: var(--font-cormorant), Georgia, serif;
   --font-display: var(--font-playfair), Georgia, serif;
@@ -15,25 +16,26 @@
 }
 
 :root {
-  --bg-midnight: #05050B;
-  --bg-deep-navy: #090D20;
-  --bg-cosmic-purple: #211333;
-  --accent-lavender: #C4A6FF;
-  --accent-gold: #EBD5A5;
-  --text-white: #FFF9F2;
-  --accent-rose: #D99CB7;
+  --bg-black: #03040A;
+  --bg-navy: #080D20;
+  --bg-indigo: #11152F;
+  --color-violet: #503B83;
+  --color-blue: #7995CC;
+  --color-gold: #F5D9A0;
+  --color-silver: #E4E7F3;
+  --color-rose: #D7A6B8;
 }
 
 html {
-  background-color: var(--bg-midnight);
-  color: var(--text-white);
-  scroll-behavior: auto; /* Lenis handles smooth scrolling */
+  background-color: var(--bg-black);
+  color: var(--color-silver);
+  scroll-behavior: auto;
   overflow-x: hidden;
 }
 
 body {
-  background-color: var(--bg-midnight);
-  color: var(--text-white);
+  background-color: var(--bg-black);
+  color: var(--color-silver);
   font-family: var(--font-sans);
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
@@ -42,26 +44,26 @@ body {
 }
 
 ::selection {
-  background-color: #211333;
-  color: #EBD5A5;
+  background-color: #503B83;
+  color: #F5D9A0;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #05050B;
+  background: #03040A;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(196, 166, 255, 0.2);
+  background: rgba(121, 149, 204, 0.2);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(235, 213, 165, 0.4);
+  background: rgba(245, 217, 160, 0.4);
 }
 
 /* Typography styles */
@@ -73,67 +75,72 @@ body {
   font-family: var(--font-playfair), Georgia, serif;
 }
 
-/* Celestial Glow Utilities */
+.font-mono-astronomy {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-feature-settings: "tnum" on, "zero" on;
+}
+
+/* Astronomical Illumination Effects */
 .text-glow-gold {
-  text-shadow: 0 0 16px rgba(235, 213, 165, 0.6), 0 0 32px rgba(235, 213, 165, 0.25);
+  text-shadow: 0 0 16px rgba(245, 217, 160, 0.6), 0 0 36px rgba(245, 217, 160, 0.25);
 }
 
-.text-glow-gold-lg {
-  text-shadow: 0 0 24px rgba(235, 213, 165, 0.8), 0 0 60px rgba(235, 213, 165, 0.4), 0 0 100px rgba(235, 213, 165, 0.2);
+.text-glow-gold-super {
+  text-shadow: 0 0 24px rgba(245, 217, 160, 0.85), 0 0 60px rgba(245, 217, 160, 0.4), 0 0 120px rgba(245, 217, 160, 0.25);
 }
 
-.text-glow-lavender {
-  text-shadow: 0 0 16px rgba(196, 166, 255, 0.6), 0 0 32px rgba(196, 166, 255, 0.25);
-}
-
-.text-glow-white {
-  text-shadow: 0 0 16px rgba(255, 249, 242, 0.7), 0 0 40px rgba(255, 249, 242, 0.35);
+.text-glow-silver {
+  text-shadow: 0 0 16px rgba(228, 231, 243, 0.6), 0 0 32px rgba(228, 231, 243, 0.2);
 }
 
 .box-glow-gold {
-  box-shadow: 0 0 30px rgba(235, 213, 165, 0.2), 0 0 60px rgba(235, 213, 165, 0.08);
+  box-shadow: 0 0 35px rgba(245, 217, 160, 0.22), 0 0 80px rgba(245, 217, 160, 0.08);
 }
 
-.box-glow-lavender {
-  box-shadow: 0 0 30px rgba(196, 166, 255, 0.2), 0 0 60px rgba(196, 166, 255, 0.08);
+.box-glow-silver {
+  box-shadow: 0 0 25px rgba(228, 231, 243, 0.15), 0 0 60px rgba(121, 149, 204, 0.1);
 }
 
-/* 3D Envelope Transformations */
-.perspective-1000 {
-  perspective: 1200px;
+/* Astronomical Dial and Orbital Ring Helpers */
+.orbital-border {
+  border: 1px solid rgba(228, 231, 243, 0.12);
 }
 
-.preserve-3d {
-  transform-style: preserve-3d;
-}
-
-.backface-hidden {
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+.orbital-border-gold {
+  border: 1px solid rgba(245, 217, 160, 0.35);
 }
 
 /* Glassmorphism Subtle */
-.glass-panel {
-  background: rgba(9, 13, 32, 0.65);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(235, 213, 165, 0.12);
-}
-
-.glass-panel-elevated {
-  background: rgba(14, 18, 40, 0.75);
+.glass-astronomy {
+  background: rgba(8, 13, 32, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(235, 213, 165, 0.2);
+  border: 1px solid rgba(228, 231, 243, 0.12);
 }
 
-/* Ambient Radial Gradients */
-.bg-cosmic-radial {
-  background: radial-gradient(circle at 50% 50%, rgba(33, 19, 51, 0.4) 0%, rgba(9, 13, 32, 0.7) 50%, #05050B 100%);
+.glass-astronomy-elevated {
+  background: rgba(17, 21, 47, 0.8);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(245, 217, 160, 0.22);
 }
 
-.bg-nebula-glow {
-  background: radial-gradient(ellipse at 50% 30%, rgba(196, 166, 255, 0.12) 0%, rgba(33, 19, 51, 0.25) 40%, transparent 70%);
+@keyframes spinClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spinCounterClockwise {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.animate-spin-slow {
+  animation: spinClockwise 120s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+  animation: spinCounterClockwise 160s linear infinite;
 }
 
 /* Reduced Motion Override */
